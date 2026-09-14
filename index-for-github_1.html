@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emmanuel Muzumara — Media Production &amp; Social Content Strategy</title>
+<meta name="description" content="Portfolio of Emmanuel Muzumara — MBA candidate, media production, and social content strategy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEEFEC;
+    --paper-dim:#E2E4DE;
+    --ink:#15171A;
+    --ink-soft:#4A4E52;
+    --panel:#FFFFFF;
+    --line:#CBCDC6;
+    --tally:#D93D2B;
+    --mustard:#C98A2A;
+    --navy:#1F2A3D;
+
+    --display: 'Archivo', sans-serif;
+    --body: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:var(--display);
+    margin:0;
+    line-height:1.05;
+  }
+  p{margin:0 0 1em 0; max-width:66ch;}
+  a{color:inherit;}
+  ::selection{background:var(--tally); color:var(--paper);}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+
+  /* ---------- Layout shell ---------- */
+  .shell{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    min-height:100vh;
+  }
+  @media (max-width:900px){
+    .shell{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Rail nav ---------- */
+  .rail{
+    position:sticky;
+    top:0;
+    height:100vh;
+    padding:32px 20px;
+    border-right:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  @media (max-width:900px){
+    .rail{
+      position:static;
+      height:auto;
+      border-right:none;
+      border-bottom:1px solid var(--line);
+      padding:20px;
+    }
+  }
+  .rail-top .name{
+    font-family:var(--display);
+    font-weight:800;
+    font-size:1.05rem;
+    letter-spacing:-0.01em;
+  }
+  .rail-top .role{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    color:var(--ink-soft);
+    margin-top:6px;
+    line-height:1.4;
+  }
+  .rundown{
+    list-style:none;
+    margin:36px 0 0 0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+  @media (max-width:900px){
+    .rundown{
+      flex-direction:row;
+      flex-wrap:wrap;
+      margin-top:16px;
+      gap:0 16px;
+    }
+  }
+  .rundown li a{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    text-decoration:none;
+    padding:7px 8px;
+    border-radius:2px;
+    font-size:0.88rem;
+    color:var(--ink-soft);
+    transition:color .15s ease, background .15s ease;
+  }
+  .rundown li a:hover{color:var(--ink);}
+  .rundown li a.active{
+    color:var(--ink);
+    background:var(--panel);
+    font-weight:600;
+  }
+  .rundown li a.active .cue{
+    background:var(--tally);
+  }
+  .cue{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--line);
+    flex:none;
+  }
+  .rundown li a span.num{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    color:var(--ink-soft);
+    width:16px;
+  }
+  .rail-bottom{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    color:var(--ink-soft);
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  @media (max-width:900px){ .rail-bottom{display:none;} }
+  .rail-bottom a{text-decoration:none;}
+  .rail-bottom a:hover{color:var(--ink);}
+
+  /* ---------- Main content ---------- */
+  main{padding:0;}
+  section{
+    padding:72px 48px;
+    border-bottom:1px solid var(--line);
+  }
+  @media (max-width:900px){
+    section{padding:48px 22px;}
+  }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:32px;
+  }
+  .section-head .tc{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    color:var(--mustard);
+  }
+  .section-head h2{
+    font-size:1.5rem;
+    font-weight:700;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding-top:96px;
+    padding-bottom:64px;
+    border-bottom:1px solid var(--line);
+  }
+  .tally-strip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--mono);
+    font-size:0.78rem;
+    color:var(--tally);
+    border:1px solid var(--tally);
+    padding:4px 10px;
+    border-radius:2px;
+    margin-bottom:28px;
+  }
+  .tally-strip .dot{
+    width:7px; height:7px; border-radius:50%;
+    background:var(--tally);
+  }
+  .hero h1{
+    font-size:clamp(2.2rem, 5vw, 3.6rem);
+    font-weight:800;
+    letter-spacing:-0.02em;
+    max-width:14ch;
+  }
+  .hero .role-line{
+    font-family:var(--mono);
+    font-size:1rem;
+    color:var(--ink-soft);
+    margin-top:20px;
+  }
+  .hero .lede{
+    margin-top:24px;
+    font-size:1.1rem;
+    color:var(--ink-soft);
+    max-width:60ch;
+  }
+  .hero-links{
+    margin-top:32px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:var(--body);
+    font-weight:600;
+    font-size:0.92rem;
+    padding:11px 20px;
+    border-radius:2px;
+    text-decoration:none;
+    display:inline-block;
+    border:1px solid var(--ink);
+  }
+  .btn.solid{background:var(--ink); color:var(--paper);}
+  .btn.solid:hover{background:var(--navy);}
+  .btn.outline{background:transparent; color:var(--ink);}
+  .btn.outline:hover{background:var(--panel);}
+
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:48px;
+  }
+  @media (max-width:900px){ .about-grid{grid-template-columns:1fr;} }
+  .about-side{display:block;}
+  .headshot{
+    width:150px;
+    height:150px;
+    object-fit:cover;
+    border:1px solid var(--line);
+    display:block;
+    margin-bottom:24px;
+  }
+  .fact-list{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex; flex-direction:column; gap:16px;
+  }
+  .fact-list li{
+    padding-bottom:16px;
+    border-bottom:1px solid var(--line);
+    font-size:0.92rem;
+  }
+  .fact-list .label{
+    display:block;
+    font-family:var(--mono);
+    font-size:0.72rem;
+    color:var(--mustard);
+    margin-bottom:4px;
+  }
+
+  /* ---------- Placeholder blocks ---------- */
+  .placeholder{
+    border:1.5px dashed var(--line);
+    border-radius:2px;
+    padding:28px;
+    background:var(--panel);
+    color:var(--ink-soft);
+    font-size:0.9rem;
+  }
+  .placeholder strong{color:var(--ink);}
+
+  .video-list{
+    list-style:none;
+    margin:24px 0 0 0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+  }
+  .video-list li{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .video-list .vtitle{font-weight:600;}
+  a.video-list, .video-list a.vtitle{text-decoration:none; color:var(--ink);}
+  .video-list a.vtitle:hover{color:var(--tally);}
+  .video-list .vmeta{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+
+  .slideshow{margin-top:24px;}
+  .slide-viewport{
+    position:relative;
+    height:460px;
+    background:var(--paper);
+    overflow:hidden;
+  }
+  @media (max-width:700px){ .slide-viewport{height:300px;} }
+  .slide{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    transition:opacity .35s ease;
+    pointer-events:none;
+  }
+  .slide.active{opacity:1; pointer-events:auto;}
+  .slide img{
+    max-width:100%;
+    max-height:100%;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    display:block;
+  }
+  .slide-caption{
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    margin-top:12px;
+    font-family:var(--mono);
+    font-size:0.78rem;
+    color:var(--ink-soft);
+  }
+  .slide-controls{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    margin-top:16px;
+  }
+  .slide-btn{
+    width:36px;
+    height:36px;
+    border:1px solid var(--ink);
+    background:transparent;
+    font-size:1.1rem;
+    line-height:1;
+    cursor:pointer;
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:background .15s ease, color .15s ease;
+  }
+  .slide-btn:hover{background:var(--ink); color:var(--paper);}
+  .slide-counter{
+    font-family:var(--mono);
+    font-size:0.8rem;
+    color:var(--ink-soft);
+    min-width:64px;
+    text-align:center;
+  }
+
+  /* ---------- Experience ---------- */
+  .job{
+    padding:24px 0;
+    border-bottom:1px solid var(--line);
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:24px;
+  }
+  @media (max-width:700px){ .job{grid-template-columns:1fr; gap:8px;} }
+  .job:last-child{border-bottom:none;}
+  .job-meta .org{font-weight:700;}
+  .job-meta .loc-date{
+    font-family:var(--mono);
+    font-size:0.75rem;
+    color:var(--ink-soft);
+    margin-top:4px;
+  }
+  .job-role{font-weight:600; margin-bottom:8px;}
+  .job ul{margin:8px 0 0 0; padding-left:18px;}
+  .job li{margin-bottom:6px; font-size:0.93rem; color:var(--ink-soft);}
+
+  .edu-item{margin-bottom:18px;}
+  .edu-item .school{font-weight:700;}
+  .edu-item .degree{font-size:0.92rem; color:var(--ink-soft);}
+  .edu-item .dates{font-family:var(--mono); font-size:0.75rem; color:var(--ink-soft);}
+
+  .resume-note{
+    margin-top:28px;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    border-left:2px solid var(--mustard);
+    padding-left:14px;
+  }
+
+  /* ---------- Projects ---------- */
+  .project-accordion{
+    border-top:1px solid var(--line);
+  }
+  .project-item{
+    border-bottom:1px solid var(--line);
+  }
+  .project-toggle{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    padding:22px 4px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    text-align:left;
+    font-family:var(--body);
+    color:var(--ink);
+  }
+  .project-toggle-main{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .project-name{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:1.15rem;
+  }
+  .project-tag{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    color:var(--mustard);
+  }
+  .project-caret{
+    font-size:1.4rem;
+    line-height:1;
+    color:var(--ink-soft);
+    flex:none;
+    transition:transform .25s ease;
+  }
+  .project-item.open .project-caret{transform:rotate(45deg);}
+  .project-body{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .35s ease;
+    padding:0 4px;
+  }
+  .project-item.open .project-body{padding-bottom:26px;}
+  .project-body p{font-size:0.93rem; color:var(--ink-soft); max-width:66ch;}
+  .project-body a.btn{margin-top:6px;}
+
+  /* ---------- Skills ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:32px;
+  }
+  @media (max-width:800px){ .skills-grid{grid-template-columns:1fr;} }
+  .skill-col h3{
+    font-size:0.95rem;
+    font-family:var(--body);
+    font-weight:700;
+    margin-bottom:14px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--line);
+  }
+  .skill-col ul{list-style:none; margin:0; padding:0;}
+  .skill-col li{
+    font-size:0.9rem;
+    color:var(--ink-soft);
+    padding:6px 0;
+  }
+
+  /* ---------- Contact / footer ---------- */
+  footer{
+    padding:64px 48px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:24px;
+  }
+  @media (max-width:900px){ footer{padding:48px 22px;} }
+  footer h2{font-size:1.8rem; max-width:16ch;}
+  .contact-links{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    font-family:var(--mono);
+    font-size:0.9rem;
+  }
+  .contact-links a{text-decoration:none;}
+  .contact-links a:hover{color:var(--tally);}
+  .fine-print{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    color:var(--ink-soft);
+    margin-top:24px;
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <nav class="rail">
+    <div class="rail-top">
+      <div class="name">Emmanuel Muzumara</div>
+      <div class="role">MBA Candidate<br>Media Production &amp; Social Content Strategy</div>
+      <ul class="rundown">
+        <li><a href="#about" class="nav-link"><span class="num">01</span><span class="cue"></span>About</a></li>
+        <li><a href="#reel" class="nav-link"><span class="num">02</span><span class="cue"></span>Reel &amp; Videos</a></li>
+        <li><a href="#photography" class="nav-link"><span class="num">03</span><span class="cue"></span>Photography</a></li>
+        <li><a href="#experience" class="nav-link"><span class="num">04</span><span class="cue"></span>Resume</a></li>
+        <li><a href="#projects" class="nav-link"><span class="num">05</span><span class="cue"></span>Projects</a></li>
+        <li><a href="#skills" class="nav-link"><span class="num">06</span><span class="cue"></span>Skills &amp; Equipment</a></li>
+        <li><a href="#contact" class="nav-link"><span class="num">07</span><span class="cue"></span>Contact</a></li>
+      </ul>
+    </div>
+    <div class="rail-bottom">
+      <a href="https://www.linkedin.com/in/emmanuelmuzumara/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.wnit.org/expmichiana/e/august-20th-2026.html" target="_blank" rel="noopener">Most recent project</a>
+      <a href="mailto:emuzumara@mercy.edu">emuzumara@mercy.edu</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero" id="top">
+      <div class="tally-strip"><span class="dot"></span>Open to full-time, part-time &amp; contract roles — NYC</div>
+      <h1>I tell stories through video, and I know why they work.</h1>
+      <div class="role-line">MBA Candidate, Mercy University — Marketing Concentration, 2027</div>
+      <div class="hero-links">
+        <a class="btn solid" href="https://www.wnit.org/expmichiana/e/august-20th-2026.html" target="_blank" rel="noopener">Watch my most recent project</a>
+        <a class="btn outline" href="#experience">View resume</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-head"><span class="tc">01</span><h2>About</h2></div>
+      <div class="about-grid">
+        <div>
+          <p>
+            I'm a media production and marketing strategist finishing an MBA at Mercy University in New York,
+            with a Communications degree from Michigan State University behind me. My work sits at the
+            intersection of two things I care about: making video that actually looks and sounds right on
+            set, and understanding the marketing strategy that decides whether that video reaches anyone.
+          </p>
+          <p>
+            Day to day, I run social media and content strategy for a Michigan nonprofit, and I've spent
+            this year in the control room and behind the camera at PBS Michiana — WNIT, working multi-camera
+            live tapings, technical direction, and studio operation. Outside of production work, I turn songs
+            I like into slowed-and-reverb edits, just for fun.
+          </p>
+        </div>
+        <div class="about-side">
+          <img class="headshot" src="headshot.jpeg" alt="Emmanuel Muzumara">
+        <ul class="fact-list">
+          <li><span class="label">Based</span>New York, NY</li>
+          <li><span class="label">From</span>St. Joseph, MI</li>
+          <li><span class="label">Education</span>MBA Candidate, Mercy University (Marketing) — BA, Michigan State University (Communications, Leadership &amp; Strategy)</li>
+          <li><span class="label">Currently</span>Social Media &amp; Digital Communications Coordinator, LADD Inc. (4.5+ years) — Production &amp; Marketing Intern, PBS Michiana / WNIT</li>
+        </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="reel">
+      <div class="section-head"><span class="tc">02</span><h2>Reel &amp; Videos</h2></div>
+      <a class="btn solid" href="https://www.wnit.org/expmichiana/e/august-20th-2026.html" target="_blank" rel="noopener">Watch my most recent project</a>
+      <ul class="video-list">
+        <li>
+          <span class="vtitle">Dinner &amp; a Book — Season 26, Episode 6</span>
+          <span class="vmeta">Camera Operator · In Post-Production</span>
+        </li>
+        <li>
+          <span class="vtitle">Dinner &amp; a Book — Season 26, Episode 5</span>
+          <span class="vmeta">Camera Operator · In Post-Production</span>
+        </li>
+        <li>
+          <span class="vtitle">Unity Gardens Special</span>
+          <span class="vmeta">WNIT · Producer, Production Assistant · In Post-Production</span>
+        </li>
+        <li>
+          <span class="vtitle">Dinner &amp; a Book — Season 26, Episode 4</span>
+          <span class="vmeta">Camera Operator · In Post-Production</span>
+        </li>
+        <li>
+          <a class="vtitle" href="https://www.wnit.org/expmichiana/e/august-20th-2026.html" target="_blank" rel="noopener">Experience Michiana — Episode #1534</a>
+          <span class="vmeta">Producer, Production Support · Aired Aug 20, 2026</span>
+        </li>
+        <li>
+          <a class="vtitle" href="https://www.wnit.org/educationcounts/s/training-teachers-with-conscious-discipline.html" target="_blank" rel="noopener">Education Counts — What's Conscious Discipline?</a>
+          <span class="vmeta">Camera Operator, Producer · Aired Aug 19, 2026</span>
+        </li>
+        <li>
+          <span class="vtitle">Dinner &amp; a Book — Season 26, Episode 2</span>
+          <span class="vmeta">Producer, Production Assistant · In Post-Production</span>
+        </li>
+        <li>
+          <a class="vtitle" href="https://youtu.be/3v0YtItADjE?si=wF6TcC7sCSyBYPau" target="_blank" rel="noopener">Crossroads — St. Joseph Woodshop Builds Coffins, Caskets, and Urns for the Community</a>
+          <span class="vmeta">Editor · Aired Aug 4, 2026</span>
+        </li>
+        <li>
+          <a class="vtitle" href="https://youtu.be/0b9YkqAqFjc?si=yHsu9BWT4jYPnMOK" target="_blank" rel="noopener">"Back to Back" — 30 For 30 Documentary</a>
+          <span class="vmeta">Lakeshore High School · Camera Operator · Aired Feb 15, 2019</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="photography">
+      <div class="section-head"><span class="tc">03</span><h2>Photography</h2></div>
+      <p>A selection of photos I've shot and edited, mostly on a Canon EOS R50.</p>
+      <div class="slideshow">
+        <div class="slide-viewport">
+        <div class="slide active" data-loc="DUMBO" data-specs="ƒ/1.78 · ISO 80 · 36mm"><img src="photo-01.jpeg" alt="Manhattan Bridge from DUMBO, Brooklyn, daytime" loading="lazy"></div>
+        <div class="slide" data-loc="Garment District" data-specs="ƒ/1.78 · ISO 800 · 24mm"><img src="photo-02.jpeg" alt="Times Square street scene at night" loading="lazy"></div>
+        <div class="slide" data-loc="Hudson Yards" data-specs="ƒ/1.78 · ISO 80 · 24mm"><img src="photo-03.jpeg" alt="The Vessel at Hudson Yards, New York" loading="lazy"></div>
+        <div class="slide" data-loc="DUMBO" data-specs="ƒ/1.78 · ISO 640 · 24mm"><img src="photo-04.jpeg" alt="Manhattan Bridge from DUMBO, Brooklyn, at night" loading="lazy"></div>
+        <div class="slide" data-loc="Times Square" data-specs="ƒ/2.2 · ISO 1000 · 14mm"><img src="photo-05.jpeg" alt="42nd Street subway platform, New York" loading="lazy"></div>
+        <div class="slide" data-loc="Koreatown" data-specs="ƒ/1.78 · ISO 1600 · 24mm"><img src="photo-06.jpeg" alt="City skyline rooftop view at night" loading="lazy"></div>
+        <div class="slide" data-loc="Wicker Park" data-specs="ƒ/2.2 · ISO 1000 · 14mm"><img src="photo-07.jpeg" alt="Hollywood Grill neon sign at night" loading="lazy"></div>
+        <div class="slide" data-loc="Wicker Park" data-specs="ƒ/2.2 · ISO 1000 · 14mm"><img src="photo-08.jpeg" alt="Neon diner sign at night" loading="lazy"></div>
+        <div class="slide" data-loc="Navy Pier" data-specs="ƒ/1.6 · ISO 1000 · 26mm"><img src="photo-09.jpeg" alt="City skyline at night" loading="lazy"></div>
+        <div class="slide" data-loc="Chicago" data-specs="ƒ/2.2 · ISO 25 · 29mm"><img src="photo-10.jpeg" alt="Lighthouse on the water" loading="lazy"></div>
+        <div class="slide" data-loc="Lusaka" data-specs="ƒ/1.78 · ISO 80 · 24mm"><img src="photo-11.jpeg" alt="Poolside courtyard with palm trees" loading="lazy"></div>
+        <div class="slide" data-loc="Slatina" data-specs="ƒ/1.8 · ISO 20 · 28mm"><img src="photo-12.jpeg" alt="Cobblestone street lined with historic buildings" loading="lazy"></div>
+        <div class="slide" data-loc="Muskegon" data-specs="ƒ/1.78 · ISO 800 · 24mm"><img src="photo-13.jpeg" alt="High-rise building lit up at dusk" loading="lazy"></div>
+        <div class="slide" data-loc="Fulton Ferry" data-specs="ƒ/1.78 · ISO 1250 · 28mm"><img src="photo-14.jpeg" alt="City street at night beneath an elevated rail structure" loading="lazy"></div>
+        </div>
+        <div class="slide-caption">
+          <span class="loc">Add location</span><span class="specs">ƒ/— · ISO — · —mm</span>
+        </div>
+        <div class="slide-controls">
+          <button type="button" class="slide-btn" data-dir="-1" aria-label="Previous photo">‹</button>
+          <span class="slide-counter">01 / 14</span>
+          <button type="button" class="slide-btn" data-dir="1" aria-label="Next photo">›</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-head"><span class="tc">04</span><h2>Resume</h2></div>
+
+      <div class="job">
+        <div class="job-meta">
+          <div class="org">Living Alternatives for the Developmentally Disabled, Inc.</div>
+          <div class="loc-date">Dowagiac, MI · 2022 – Present</div>
+        </div>
+        <div>
+          <div class="job-role">Social Media &amp; Digital Communications Coordinator (Remote)</div>
+          <ul>
+            <li>Own end-to-end social media strategy and content production across multiple platforms, translating organizational updates into inclusive, audience-targeted content that increased online engagement by 40% within one year.</li>
+            <li>Manage a recurring content and events calendar, coordinating announcements across social channels and the organization's website to keep the surrounding community consistently informed.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-meta">
+          <div class="org">PBS Michiana — WNIT</div>
+          <div class="loc-date">South Bend, IN · Summer 2026</div>
+        </div>
+        <div>
+          <div class="job-role">Social Media Marketing &amp; Production Intern</div>
+          <ul>
+            <li>Operate studio cameras and support technical direction during multi-camera live tapings for station programming, while assisting with production logistics for on-location and studio shoots across documentary, broadcast, and promotional formats.</li>
+            <li>Capture and encode raw camera footage, edit episodes in Adobe Premiere Pro, and repurpose long-form documentaries and station programs into short-form video content for social platforms, extending program reach across digital channels.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-meta">
+          <div class="org">Impact 89FM — WDBM-FM</div>
+          <div class="loc-date">East Lansing, MI · 2024 – 2025</div>
+        </div>
+        <div>
+          <div class="job-role">Entertainment &amp; Music Content Contributor</div>
+          <ul>
+            <li>Researched and pitched weekly story angles for the entertainment and music team, tracking emerging artists, releases, and entertainment events to keep coverage timely.</li>
+            <li>Wrote and edited articles for the station's entertainment desk, collaborating with the creative team to shape story angles from pitch to publish.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-meta">
+          <div class="org">Michigan State University — Univ. Health &amp; Wellbeing</div>
+          <div class="loc-date">East Lansing, MI · 2024 – 2025</div>
+        </div>
+        <div>
+          <div class="job-role">Engagement Team Operations Supervisor</div>
+          <ul>
+            <li>Directed daily operations for a multi-program student engagement team, training and onboarding staff to ensure consistent execution across concurrent initiatives, including the MSU Spartan Shelf Basic Needs &amp; Food Bank Program.</li>
+            <li>Produced internal reports and communications for cross-departmental stakeholders, maintaining alignment and clear information flow across a large university department.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-meta">
+          <div class="org">American Advertising Federation — MSU Chapter</div>
+          <div class="loc-date">East Lansing, MI · 2023 – 2024</div>
+        </div>
+        <div>
+          <div class="job-role">Creative Strategist, Tide National Campaign</div>
+          <ul>
+            <li>Helped lead research and creative development for a Tide campaign that won District 6 (Midwest region), placing first, and was selected as one of eight national finalist campaigns in the National Student Advertising Competition.</li>
+            <li>Concepted and designed social-first ad executions for TikTok, Instagram, Facebook, and YouTube Shorts as part of the national campaign pitch.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="edu-item" style="margin-top:36px;">
+        <div class="school">Mercy University — New York, NY</div>
+        <div class="degree">Master of Business Administration, Marketing Concentration</div>
+        <div class="dates">2025 – 2027</div>
+      </div>
+      <div class="edu-item">
+        <div class="school">Michigan State University — East Lansing, MI</div>
+        <div class="degree">BA, Communications, Leadership &amp; Strategy · Business Minor</div>
+        <div class="dates">2021 – 2025 · Dean's List, Fall 2023 &amp; Spring 2023</div>
+        <div class="degree" style="margin-top:6px; font-size:0.85rem;">Honors: Featured student leader during State Rep. Julie Brixie's $125,000 tribute presentation to the MSU Student Food Bank
+          (<a href="https://statenews.com/article/2025/01/state-representative-julie-brixie-presents-125000-to-msu-student-food-bank" target="_blank" rel="noopener" style="text-decoration:underline;">The State News</a>)</div>
+      </div>
+
+      <div style="margin-top:28px;">
+        <a class="btn outline" href="resume.pdf" download="Emmanuel-Muzumara-Resume.pdf">Download full resume (PDF)</a>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head"><span class="tc">05</span><h2>Projects</h2></div>
+      <div class="project-accordion">
+
+        <div class="project-item open" data-project="zephyr">
+          <button type="button" class="project-toggle">
+            <span class="project-toggle-main">
+              <span class="project-name">Zephyr Consulting Agency</span>
+              <span class="project-tag">WKAR Strategic Engagement Plan, Data Analyst</span>
+            </span>
+            <span class="project-caret">+</span>
+          </button>
+          <div class="project-body">
+            <p>
+              A capstone consulting project (COM 480) for WKAR, Michigan State's PBS/NPR affiliate: a strategic
+              plan to close a stark awareness gap with Gen Z. Our research found half of surveyed 18-24-year-olds
+              had never heard of WKAR, and nearly two-thirds of those who had didn't know its programming, while
+              comparable PBS affiliates were pulling 130,000+ views on a single TikTok.
+            </p>
+            <p>
+              As the team's Data Analyst, I built and ran the awareness survey, analyzed the results, including
+              WKAR's awareness split and where Gen Z actually spends its media time versus the general population,
+              and benchmarked WKAR against PBS affiliates already succeeding on TikTok and Instagram to find what
+              was working.
+            </p>
+            <p>
+              The plan recommended WKAR lean into short-form, platform-native content, lead with local and
+              relatable stories, and focus on campus-specific engagement, using WKAR's own PBS nostalgia as an
+              emotional hook rather than competing head-on with native creators.
+            </p>
+            <a class="btn outline" href="zephyr-presentation.pdf" download="Zephyr-Consulting-Agency-Presentation.pdf">View presentation (PDF)</a>
+          </div>
+        </div>
+
+        <div class="project-item" data-project="tide">
+          <button type="button" class="project-toggle">
+            <span class="project-toggle-main">
+              <span class="project-name">Tide Advertising Campaign</span>
+              <span class="project-tag">American Advertising Federation, MSU Chapter, Creative Strategist</span>
+            </span>
+            <span class="project-caret">+</span>
+          </button>
+          <div class="project-body">
+            <p>
+              A National Student Advertising Competition entry for Tide: a campaign built to convert laundry
+              habits toward cold water, backed by roughly 1,000 hours of research, including a 628-person
+              primary survey. The research found people weren't against sustainability, they just wouldn't
+              prioritize it unless it was also easier and cheaper, which shaped the winning creative direction:
+              "Cold Therapy" ("Help your clothes relax"), tested head-to-head against a more guilt-driven
+              concept and chosen for scoring higher on relevance, believability, and clarity. The full plan
+              spanned streaming, social, influencers, out-of-home, and retail, with partnerships with Levi's
+              and Frito-Lay, on a $75M budget.
+            </p>
+            <p>
+              As part of the Creative Design Team, I concepted and designed social-first ad executions for
+              TikTok, Instagram, Facebook, and YouTube Shorts. The campaign won District 6 (Midwest region), placing first,
+              and was selected as one of eight national finalist campaigns.
+            </p>
+            <p style="font-size:0.85rem;">Built with Agency 340, American Advertising Federation (MSU Chapter), for the National Student Advertising Competition.</p>
+            <a class="btn outline" href="tide-plans-book.pdf" download="Tide-NSAC-Plans-Book.pdf">View plans book (PDF)</a>
+          </div>
+        </div>
+
+        <div class="project-item" data-project="30for30">
+          <button type="button" class="project-toggle">
+            <span class="project-toggle-main">
+              <span class="project-name">"Back to Back": 30 For 30 Documentary</span>
+              <span class="project-tag">Lakeshore High School, Camera Operator, Researcher, Outreach, Editor</span>
+            </span>
+            <span class="project-caret">+</span>
+          </button>
+          <div class="project-body">
+            <p>
+              A student-produced, "30 for 30"-style documentary tracing three generations of Lakeshore
+              Lancers baseball state championship teams (1990, 2017, 2018), built around a shared theme of
+              community legacy.
+            </p>
+            <p>
+              I worked across research, outreach, and production: digging through archives, game footage,
+              and yearbooks to reconstruct the 1990 championship team's story, tracking down and helping
+              schedule alumni interviews, and shooting on the camera crew, filming player and coach
+              interviews and capturing aerial drone footage for B-roll.
+            </p>
+            <p>
+              The film premiered February 15, 2019, at halftime of a varsity basketball game alongside the
+              school's State Championship Ring Ceremony, screened in the school auditorium for players,
+              families, and the community.
+            </p>
+<a class="btn outline" href="https://youtu.be/0b9YkqAqFjc?si=yHsu9BWT4jYPnMOK" target="_blank" rel="noopener">Watch the documentary</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-head"><span class="tc">06</span><h2>Skills &amp; Equipment</h2></div>
+      <div class="skills-grid">
+        <div class="skill-col">
+          <h3>Production</h3>
+          <ul>
+            <li>Multi-Camera Live Production</li>
+            <li>Technical Directing</li>
+            <li>Studio Camera Operation</li>
+            <li>Adobe Premiere Pro</li>
+            <li>Adobe Media Encoder</li>
+            <li>Adobe Lightroom</li>
+            <li>Adobe Photoshop</li>
+            <li>Adobe InDesign</li>
+            <li>Adobe After Effects</li>
+            <li>Adobe Audition</li>
+            <li>Logic Pro</li>
+            <li>Serato</li>
+            <li>Final Cut Pro</li>
+          </ul>
+        </div>
+        <div class="skill-col">
+          <h3>Equipment</h3>
+          <ul>
+            <li>Ikegami HDK-790D Studio Cameras</li>
+            <li>Canon DIGISUPER 25 XS Lenses</li>
+            <li>Sony PXW-Z200 4K XDCAM</li>
+            <li>Canon EOS R50</li>
+            <li>Sony Mirrorless Camera (FX3 / a7S III)</li>
+            <li>Sony FE 70-200mm f/2.8 GM OSS II</li>
+            <li>Atomos External Monitor-Recorder</li>
+          </ul>
+        </div>
+        <div class="skill-col">
+          <h3>Marketing &amp; Certifications</h3>
+          <ul>
+            <li>Social Media Management</li>
+            <li>Digital Content Creation</li>
+            <li>Data Analysis &amp; Reporting</li>
+            <li>Meta Business Suite</li>
+            <li>Google Ads — Display &amp; Measurement</li>
+            <li>Google — Fundamentals of Digital Marketing</li>
+            <li>Bloomberg Spreadsheet Analysis</li>
+            <li>YouTube Asset Monetization &amp; Content Ownership</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <h2>Let's work together.</h2>
+      <div class="contact-links">
+        <a href="mailto:emuzumara@mercy.edu">emuzumara@mercy.edu</a>
+        <a href="tel:2698830554">269-883-0554</a>
+        <a href="https://www.linkedin.com/in/emmanuelmuzumara/" target="_blank" rel="noopener">linkedin.com/in/emmanuelmuzumara</a>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<script>
+  // Highlight the active section in the rundown nav as you scroll.
+  const links = document.querySelectorAll('.nav-link');
+  const sections = Array.from(links).map(l => document.querySelector(l.getAttribute('href')));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = '#' + entry.target.id;
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+
+  sections.forEach(s => { if (s) observer.observe(s); });
+
+  // Photo slideshow
+  const slides = document.querySelectorAll('.slide');
+  if (slides.length) {
+    let current = 0;
+    const total = slides.length;
+    const counterEl = document.querySelector('.slide-counter');
+    const locEl = document.querySelector('.slide-caption .loc');
+    const specsEl = document.querySelector('.slide-caption .specs');
+    const pad = n => String(n).padStart(2, '0');
+    function showSlide(i) {
+      slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+      const active = slides[i];
+      counterEl.textContent = pad(i + 1) + ' / ' + pad(total);
+      locEl.textContent = active.dataset.loc;
+      specsEl.textContent = active.dataset.specs;
+    }
+    document.querySelectorAll('.slide-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const dir = parseInt(btn.dataset.dir, 10);
+        current = (current + dir + total) % total;
+        showSlide(current);
+      });
+    });
+    showSlide(0);
+  }
+
+  // Project accordion
+  document.querySelectorAll('.project-toggle').forEach(btn => {
+    const item = btn.closest('.project-item');
+    const body = item.querySelector('.project-body');
+    if (item.classList.contains('open')) {
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      if (isOpen) {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        requestAnimationFrame(() => { body.style.maxHeight = '0px'; });
+        item.classList.remove('open');
+      } else {
+        item.classList.add('open');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
